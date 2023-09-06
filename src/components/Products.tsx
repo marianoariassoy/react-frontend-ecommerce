@@ -15,6 +15,9 @@ const Products = ({ title }: Props) => {
         <ProductsItem />
         <ProductsItem />
         <ProductsItem />
+        <ProductsItem />
+        <ProductsItem />
+        <ProductsItem />
       </div>
 
       <Pagination />
