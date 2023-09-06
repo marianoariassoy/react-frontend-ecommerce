@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Producto 1",
+    "description": "Descripcion del producto",
+    "code": "P1",
+    "price": 1000,
+    "category": "Category 1",
+    "image": "https://images.pexels.com/photos/7671168/pexels-photo-7671168.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "thumbnails": ["url1", "url2"],
+    "stock": 0,
+    "status": false
+  },
+  {
+    "id": 2,
+    "title": "Producto 2",
+    "description": "Descripcion del producto",
+    "code": "P1",
+    "price": 1000,
+    "category": "Category 1",
+    "image": "https://images.pexels.com/photos/2850487/pexels-photo-2850487.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "thumbnails": ["", "url2"],
+    "stock": 0,
+    "status": false
+  },
+  {
+    "id": 3,
+    "title": "Producto 3",
+    "description": "Descripcion del producto",
+    "code": "P1",
+    "price": 1000,
+    "category": "Category 1",
+    "image": "https://images.pexels.com/photos/1943846/pexels-photo-1943846.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "thumbnails": ["url1", "url2"],
+    "stock": 0,
+    "status": false
+  },
+  {
+    "id": 4,
+    "title": "Producto 4",
+    "description": "Descripcion del producto",
+    "code": "P1",
+    "price": 1000,
+    "category": "Category 1",
+    "image": "https://images.pexels.com/photos/1502216/pexels-photo-1502216.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "thumbnails": ["", ""],
+    "stock": 10,
+    "status": false
+  }
+]

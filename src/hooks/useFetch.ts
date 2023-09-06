@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-const apiUrl = ' '
+const apiUrl = 'http://localhost:5173/data'
 import axios from 'axios'
 
 type Data = string

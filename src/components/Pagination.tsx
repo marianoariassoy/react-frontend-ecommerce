@@ -1,10 +1,7 @@
 const Pagination = () => {
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const onPageChange = (page: number) => setCurrentPage(page);
-
   return (
     <div className='flex justify-center mt-16 text-sm'>
-      <ul className='flex items-center gap-x-4 '>
+      <ul className='flex items-center gap-x-4 [&>li>a:hover]:underline'>
         <li>
           <a href='#'>Prev</a>
         </li>
