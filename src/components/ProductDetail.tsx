@@ -23,6 +23,9 @@ const ProductDetail = () => {
         <img
           src='https://next.medusajs.com/_next/image?url=https%3A%2F%2Fmedusa-server-testing.s3.amazonaws.com%2Fhoodie-south-1689249949098.jpg&w=1920&q=75'
           className='object-cover w-full h-full'
+          style={{
+            viewTransitionName: 'product-1'
+          }}
         />
       </div>
       <div className='lg:w-1/3 flex flex-col gap-y-4'>
