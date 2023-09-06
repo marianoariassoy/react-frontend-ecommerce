@@ -6,7 +6,7 @@ const Header = () => {
       <div className='flex-1 flex-grow'></div>
       <div>
         <Link href='/'>
-          <a className='text-xl font-bold hover:opacity-50 transition-all'>FRONTEND</a>
+          <a className='text-xl font-bold hover:opacity-50 transition-all'>CODERHOUSE 55525</a>
         </Link>
       </div>
       <div className='flex items-center justify-end gap-x-2 flex-1 flex-grow text-xs'>
