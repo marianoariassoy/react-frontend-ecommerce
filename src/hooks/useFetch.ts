@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-const apiUrl = 'http://localhost:5173/data'
+const apiUrl = 'https://react-frontend-ecommerce.vercel.app/data'
 import axios from 'axios'
 
 type Data = string
