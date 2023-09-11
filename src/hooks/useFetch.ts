@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-const apiUrl = 'https://react-frontend-ecommerce.vercel.app/data'
+const apiUrl = 'http://localhost:8080/api'
 import axios from 'axios'
 
 type Data = string
@@ -14,8 +14,9 @@ function useFetch(url: Data) {
       try {
         const urlOk = apiUrl + url
         const response = await axios.get(urlOk)
-        const json = await response.data
-        setData(json)
+        const { payload } = await response.data
+
+        setData(payload)
       } finally {
         setLoading(false)
       }

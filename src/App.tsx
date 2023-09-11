@@ -15,7 +15,7 @@ function App() {
         component={Product}
       />
       <Route
-        path='/cart'
+        path='/carts/:cid'
         component={Cart}
       />
     </>

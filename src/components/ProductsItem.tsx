@@ -1,14 +1,14 @@
 import { Link } from 'wouter'
 
 type Props = {
-  data: { id: number; title: string; price: number; image: string }
+  data: { _id: number; title: string; price: number; image: string }
 }
 
 const ProductsItem = ({ data }: Props) => {
   return (
     <article className='flex flex-col gap-y-2 text-sm'>
       <div className='relative'>
-        <Link href={`/product/${data.id}`}>
+        <Link href={`/product/${data._id}`}>
           <a className='absolute flex items-center justify-center font-bold text-2xl w-full h-full bg-white/50 backdrop-blur-md z-10 cursor-pointer transition-all opacity-0 hover:opacity-100 text-black hover:shadow-xl'>
             +
           </a>

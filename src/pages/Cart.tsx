@@ -1,12 +1,20 @@
-import { useEffect } from 'react'
-
+import { useRoute } from 'wouter'
+import useFetch from '../hooks/useFetch'
+import Loader from '../components/Loader'
 import Layout from '../layout/Layout'
 import CartItem from '../components/CartItem'
 
 const Cart = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  const [match, params] = useRoute<{ cid: string }>('/carts/:cid')
+  const { cid } = params
+  const { data, loading } = useFetch(`/carts/${cid}`)
+
+  if (loading) return <Loader />
+  if (!match) return <Loader />
+
+  const totalPrice = data[0].products.reduce((total, item) => {
+    return total + item.product.price * item.quantity
+  }, 0)
 
   return (
     <Layout>
@@ -14,19 +22,18 @@ const Cart = () => {
         <div className='font-sm'>FORM</div>
         <div>
           <section className='mb-8'>
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {data[0].products.map(item => (
+              <CartItem
+                key={item._id}
+                data={item.product}
+                quantity={item.quantity}
+              />
+            ))}
           </section>
           <section>
-            <div className='flex justify-between mb-4 text-sm'>
-              <div>Subtotal</div>
-              <div>$18.95</div>
-            </div>
-
             <div className='flex justify-between font-bold'>
-              <div>Total</div>
-              <div>$18.95</div>
+              <div>Total Price</div>
+              <div>${totalPrice}</div>
             </div>
           </section>
         </div>

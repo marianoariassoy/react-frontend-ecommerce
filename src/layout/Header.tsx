@@ -10,7 +10,7 @@ const Header = () => {
         </Link>
       </div>
       <div className='flex items-center justify-end gap-x-2 flex-1 flex-grow text-xs'>
-        <Link href='/cart'>
+        <Link href='/carts/64fd26c7e7ae10b0235dd181'>
           <a className='cursor-pointer hover:underline'>My Bag (0)</a>
         </Link>
       </div>

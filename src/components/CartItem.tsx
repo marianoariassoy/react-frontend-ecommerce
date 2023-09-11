@@ -1,24 +1,31 @@
 import { Link } from 'wouter'
 
-const CartItem = () => {
+interface Data {
+  _id: string
+  title: string
+  price: number
+  image: string
+}
+
+const CartItem = ({ data, quantity }: { data: Data; quantity: number }) => {
   return (
     <article className='flex justify-between items-center mb-4'>
       <div className='flex gap-x-4 items-center'>
-        <Link href={`/product/1`}>
+        <Link href={`/product/${data._id}`}>
           <a>
             <img
-              src='https://next.medusajs.com/_next/image?url=https%3A%2F%2Fmedusa-server-testing.s3.amazonaws.com%2Fhoodie-south-1689249949098.jpg&w=1920&q=75'
+              src={data.image}
               className='object-cover aspect-square w-16 h-16 hover:opacity-50 transition-all'
             />
           </a>
         </Link>
-
         <div className='text-sm'>
-          <span className='block'>Megabat Tee</span>
-          <span className='block opacity-50'>White / Small</span>
+          <span className='block'>{data.title}</span>
+          <span className='opacity-50 block'>Small</span>
+          <span className='font-bold block'>({quantity})</span>
         </div>
       </div>
-      <div className='text-sm'>$18.95</div>
+      <div className='text-sm'>${data.price}</div>
     </article>
   )
 }
