@@ -1,8 +1,6 @@
-// import { useLocation } from 'wouter'
+import { Link } from 'wouter'
 
 const ProductDetail = ({ data }) => {
-  // const [location, navigate] = useLocation()
-
   const addToCart = () => {
     console.log('add to cart')
     // console.log(location)
@@ -28,11 +26,20 @@ const ProductDetail = ({ data }) => {
         </div>
         <div>
           <button
-            className='bg-black text-white border px-4 py-4 w-full uppercase text-xs hover:bg-white hover:text-black hover:border-black transition-all'
+            className='bg-black text-white border px-4 py-4 w-full uppercase text-xs hover:bg-white hover:text-black hover:border-black transition-all mb-2'
             onClick={addToCart}
           >
             Add to cart
           </button>
+
+          <Link href='/'>
+            <a
+              href='#'
+              className='bg-white text-black border border-black px-4 py-4 w-full uppercase text-xs hover:bg-black hover:text-white hover:border-black transition-all block text-center'
+            >
+              Back
+            </a>
+          </Link>
         </div>
       </div>
     </section>

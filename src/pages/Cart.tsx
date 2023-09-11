@@ -8,27 +8,33 @@ const Cart = () => {
   const [match, params] = useRoute<{ cid: string }>('/carts/:cid')
   const { cid } = params
   const { data, loading } = useFetch(`/carts/${cid}`)
+  let totalPrice = 0
 
-  if (loading) return <Loader />
   if (!match) return <Loader />
 
-  const totalPrice = data[0].products.reduce((total, item) => {
-    return total + item.product.price * item.quantity
-  }, 0)
+  if (data) {
+    totalPrice = data[0].products.reduce((total, item) => {
+      return total + item.product.price * item.quantity
+    }, 0)
+  }
 
   return (
     <Layout>
       <section className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-32 m-auto max-w-6xl px-6'>
         <div className='font-sm'>FORM</div>
         <div>
-          <section className='mb-8'>
-            {data[0].products.map(item => (
-              <CartItem
-                key={item._id}
-                data={item.product}
-                quantity={item.quantity}
-              />
-            ))}
+          <section className='mb-12 flex flex-col gap-y-6 justify-center'>
+            {loading ? (
+              <Loader />
+            ) : (
+              data[0].products.map(item => (
+                <CartItem
+                  key={item._id}
+                  data={item.product}
+                  quantity={item.quantity}
+                />
+              ))
+            )}
           </section>
           <section>
             <div className='flex justify-between font-bold'>

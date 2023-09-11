@@ -11,7 +11,7 @@ const Filters = ({ options, setOptions }: Props) => {
     e.preventDefault()
     const category = e.target.value
     if (!category) return
-    setOptions({ ...options, category })
+    setOptions({ ...options, category, page: 1 })
   }
 
   const handleSort = e => {

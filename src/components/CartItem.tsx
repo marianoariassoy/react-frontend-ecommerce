@@ -9,7 +9,7 @@ interface Data {
 
 const CartItem = ({ data, quantity }: { data: Data; quantity: number }) => {
   return (
-    <article className='flex justify-between items-center mb-4'>
+    <article className='flex justify-between items-center'>
       <div className='flex gap-x-4 items-center'>
         <Link href={`/product/${data._id}`}>
           <a>
