@@ -8,14 +8,12 @@ const Home = () => {
   const [match, params] = useRoute<{ pid: string }>('/product/:pid')
   const { pid } = params
   const { data, loading } = useFetch(`/products/${pid}`)
-
-  if (loading) return <Loader />
   if (!match) return <Loader />
 
   return (
     <Layout>
       <section className='mt-28 m-auto max-w-6xl px-6'>
-        <ProductDetail data={data[0]} />
+        {loading ? <Loader /> : <ProductDetail data={data[0]} />}
       </section>
     </Layout>
   )

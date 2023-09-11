@@ -1,12 +1,12 @@
-import { useLocation } from 'wouter'
+// import { useLocation } from 'wouter'
 
 const ProductDetail = ({ data }) => {
-  const [location, navigate] = useLocation()
+  // const [location, navigate] = useLocation()
 
   const addToCart = () => {
     console.log('add to cart')
-    console.log(location)
-    navigate('/cart')
+    // console.log(location)
+    // navigate('/cart')
   }
 
   return (
