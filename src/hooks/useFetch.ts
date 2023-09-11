@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-const apiUrl = 'https://coderhouse-backend-tkm8-dev.fl0.io'
+const apiUrl = 'https://coderhouse-backend-tkm8-dev.fl0.io/api'
 import axios from 'axios'
 
 type Data = string
