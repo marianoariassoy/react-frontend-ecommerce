@@ -7,7 +7,7 @@ const Header = () => {
     <div className='fixed w-full top-0 z-50'>
       <TopBar />
       <div className='flex items-start px-6 lg:px-12 py-4'>
-        <div className='flex-1 flex-grow flex flex-col gap-y-2 uppercase text-xs font-semibold pt-4 [&>a:hover]:underline'>
+        <nav className='flex-1 flex-grow flex flex-col gap-y-2 uppercase text-xs font-semibold pt-4 [&>a:hover]:underline'>
           <Link href='/category/all'>
             <a href='#'>All</a>
           </Link>
@@ -16,10 +16,10 @@ const Header = () => {
               href={`/category/${category.toLocaleLowerCase()}`}
               key={category}
             >
-              <a href='#'>{category}</a>
+              <a className=':hover:underline'>{category}</a>
             </Link>
           ))}
-        </div>
+        </nav>
         <div>
           <Link href='/'>
             <a className='text-xl font-bold hover:opacity-50 transition-all'>BACKEND 55525</a>

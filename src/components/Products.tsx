@@ -17,11 +17,12 @@ const Products = () => {
   })
 
   useEffect(() => {
+    setLoading(true)
     const category = location.split('/')[2]
     category && setOptions({ ...options, category, page: 1 })
   }, [location])
 
-  const { data, loading } = useFetch(
+  const { data, loading, setLoading } = useFetch(
     `/products?page=${options.page}&limit=${options.limit}&category=${options.category}&sort=${options.sort}`
   )
 
@@ -33,7 +34,7 @@ const Products = () => {
     )
 
   return (
-    <>
+    <div>
       <Filters
         options={options}
         setOptions={setOptions}
@@ -57,7 +58,7 @@ const Products = () => {
         options={options}
         setOptions={setOptions}
       />
-    </>
+    </div>
   )
 }
 
