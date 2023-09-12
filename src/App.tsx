@@ -11,6 +11,10 @@ function App() {
         component={Home}
       />
       <Route
+        path='/category/:category'
+        component={Home}
+      />
+      <Route
         path='/product/:pid'
         component={Product}
       />

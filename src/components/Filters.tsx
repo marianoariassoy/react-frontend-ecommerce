@@ -1,19 +1,13 @@
+import { sorts } from '../data/data'
+import { Down } from '../icons/icons'
+
 interface Props {
   options: { page: number; limit: number; category: string; sort: string }
   setOptions: (options: { page: number; limit: number; category: string; sort: string }) => void
+  totalDocs: number
 }
 
-const Filters = ({ options, setOptions }: Props) => {
-  const categories = ['Remeras', 'Camisas', 'Pantalones']
-  const sorts = ['Minor price to higher', 'Higher price to minor']
-
-  const handleCategory = e => {
-    e.preventDefault()
-    const category = e.target.value
-    if (!category) return
-    setOptions({ ...options, category, page: 1 })
-  }
-
+const Filters = ({ options, setOptions, totalDocs }: Props) => {
   const handleSort = e => {
     e.preventDefault()
     const value = e.target.value
@@ -22,41 +16,32 @@ const Filters = ({ options, setOptions }: Props) => {
   }
 
   return (
-    <div className='flex gap-x-4 text-sm justify-center mb-12'>
-      <select
-        name='category'
-        id='category'
-        className='bg-white border-black border p-2 cursor-pointer'
-        onClick={handleCategory}
-      >
-        <option value=''>Select Category</option>
-        <option value='all'>All</option>
-        {categories.map(category => (
-          <option
-            key={category}
-            value={category}
-          >
-            {category}
-          </option>
-        ))}
-      </select>
-
-      <select
-        name='price-order'
-        id='price-order'
-        className='bg-white border-black border p-2'
-        onClick={handleSort}
-      >
-        <option value='0'>Select Order</option>
-        {sorts.map(sort => (
-          <option
-            key={sort}
-            value={sort}
-          >
-            {sort}
-          </option>
-        ))}
-      </select>
+    <div className='mb-12 flex flex-col lg:flex-row items-center gap-2'>
+      <div className='flex-grow flex-1 text-sm'>
+        <span className='font-semibold opacity-50'>Total Products: {totalDocs}</span>
+      </div>
+      <div>
+        <h2 className='text-2xl font-bold mb-2'>Latest Products</h2>
+      </div>
+      <div className='flex-grow flex-1 flex justify-end items-center gap-x-2'>
+        <Down />
+        <select
+          name='price-order'
+          id='price-order'
+          className='bg-white border-black border-2 p-2 text-sm px-2'
+          onChange={handleSort}
+        >
+          <option value='0'>Order By</option>
+          {sorts.map(sort => (
+            <option
+              key={sort}
+              value={sort}
+            >
+              {sort}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   )
 }

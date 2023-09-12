@@ -9,7 +9,6 @@ const Cart = () => {
   const { cid } = params
   const { data, loading } = useFetch(`/carts/${cid}`)
   let totalPrice = 0
-
   if (!match) return <Loader />
 
   if (data) {
@@ -20,7 +19,7 @@ const Cart = () => {
 
   return (
     <Layout>
-      <section className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-32 m-auto max-w-6xl px-6'>
+      <section className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-52 px-6 lg:px-12'>
         <div className='font-sm'>FORM</div>
         <div>
           <section className='mb-12 flex flex-col gap-y-6 justify-center'>

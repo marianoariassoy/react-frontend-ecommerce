@@ -12,8 +12,14 @@ const Home = () => {
 
   return (
     <Layout>
-      <section className='mt-28 m-auto max-w-6xl px-6'>
-        {loading ? <Loader /> : <ProductDetail data={data[0]} />}
+      <section>
+        {loading ? (
+          <div className='h-screen w-full flex items-center justify-center'>
+            <Loader />
+          </div>
+        ) : (
+          <ProductDetail data={data[0]} />
+        )}
       </section>
     </Layout>
   )
