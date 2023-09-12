@@ -16,7 +16,7 @@ const Header = () => {
               href={`/category/${category.toLocaleLowerCase()}`}
               key={category}
             >
-              <a className=':hover:underline'>{category}</a>
+              <a href='#'>{category}</a>
             </Link>
           ))}
         </nav>

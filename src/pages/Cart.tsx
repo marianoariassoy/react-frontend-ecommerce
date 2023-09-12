@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useRoute } from 'wouter'
 import useFetch from '../hooks/useFetch'
 import Loader from '../components/Loader'
@@ -9,7 +10,10 @@ const Cart = () => {
   const { cid } = params
   const { data, loading } = useFetch(`/carts/${cid}`)
   let totalPrice = 0
-  if (!match) return <Loader />
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if (data) {
     totalPrice = data[0].products.reduce((total, item) => {
@@ -26,6 +30,7 @@ const Cart = () => {
             {loading ? (
               <Loader />
             ) : (
+              match &&
               data[0].products.map(item => (
                 <CartItem
                   key={item._id}

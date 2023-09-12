@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useRoute } from 'wouter'
 import ProductDetail from '../components/ProductDetail'
 import Layout from '../layout/Layout'
@@ -8,12 +9,15 @@ const Home = () => {
   const [match, params] = useRoute<{ pid: string }>('/product/:pid')
   const { pid } = params
   const { data, loading } = useFetch(`/products/${pid}`)
-  if (!match) return <Loader />
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <Layout>
       <section>
-        {loading ? (
+        {match && loading ? (
           <div className='h-screen w-full flex items-center justify-center'>
             <Loader />
           </div>
