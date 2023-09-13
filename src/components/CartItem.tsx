@@ -9,24 +9,25 @@ interface Data {
 
 const CartItem = ({ data, quantity }: { data: Data; quantity: number }) => {
   return (
-    <article className='flex justify-between items-center'>
-      <div className='flex gap-x-4 items-center'>
+    <tr className='border-b'>
+      <th className='flex gap-6 px-6 py-4 text-left'>
         <Link href={`/product/${data._id}`}>
           <a>
             <img
               src={data.image}
-              className='object-cover aspect-square w-16 h-16 hover:opacity-50 transition-all'
+              className='object-cover w-36 aspect-[4/5] hover:opacity-50 transition-all'
             />
           </a>
         </Link>
-        <div className='text-sm'>
-          <span className='block'>{data.title}</span>
-          <span className='opacity-50 block'>Small</span>
-          <span className='font-bold block'>({quantity})</span>
+        <div>
+          <h2 className='font-semibold uppercase'>{data.title}</h2>
+          <span className='opacity-50 block font-normal'>Small</span>
         </div>
-      </div>
-      <div className='text-sm'>${data.price}</div>
-    </article>
+      </th>
+      <td className='font-semibold px-6 py-4'>$ {data.price}</td>
+      <td className='font-semibold px-6 py-4'>{quantity}</td>
+      <td className='font-semibold px-6 py-4'>$ {data.price * quantity}</td>
+    </tr>
   )
 }
 
