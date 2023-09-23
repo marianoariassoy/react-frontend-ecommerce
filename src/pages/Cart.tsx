@@ -16,14 +16,14 @@ const Cart = () => {
   }, [])
 
   if (data) {
-    totalPrice = data[0].products.reduce((total, item) => {
+    totalPrice = data.products.reduce((total, item) => {
       return total + item.product.price * item.quantity
     }, 0)
   }
 
   return (
     <Layout>
-      <section className='m-auto max-w-7xl mt-52 px-6 lg:px-12'>
+      <section className='m-auto max-w-7xl mt-64 px-6 lg:px-12'>
         <h1 className='text-xl lg:text-2xl font-semibold mb-8'>CARRITO DE COMPRAS</h1>
         <div className='w-full flex flex-col lg:flex-row gap-8 items-start'>
           <div className='flex-1 font-sm'>
@@ -31,7 +31,7 @@ const Cart = () => {
               <table className='w-full'>
                 <thead>
                   <tr className='border-b text-sm'>
-                    <th className='px-6 py-3 col'>
+                    <th className=' py-3 col'>
                       <span>Artículo</span>
                     </th>
                     <th className='px-6 py-3 col'>
@@ -56,8 +56,7 @@ const Cart = () => {
                       </td>
                     </tr>
                   ) : (
-                    match &&
-                    data[0].products.map(item => (
+                    data.products.map(item => (
                       <CartItem
                         key={item._id}
                         data={item.product}

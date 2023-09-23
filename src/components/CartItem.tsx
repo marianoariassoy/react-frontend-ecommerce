@@ -10,7 +10,7 @@ interface Data {
 const CartItem = ({ data, quantity }: { data: Data; quantity: number }) => {
   return (
     <tr className='border-b'>
-      <th className='flex gap-6 px-6 py-4 text-left'>
+      <th className='flex gap-6 py-4 text-left'>
         <Link href={`/product/${data._id}`}>
           <a>
             <img
