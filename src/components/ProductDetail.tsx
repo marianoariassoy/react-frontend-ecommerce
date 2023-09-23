@@ -1,10 +1,6 @@
-import { Link } from 'wouter'
-
 const ProductDetail = ({ data }) => {
   const addToCart = () => {
     console.log('add to cart')
-    // console.log(location)
-    // navigate('/cart')
   }
 
   return (
@@ -24,22 +20,13 @@ const ProductDetail = ({ data }) => {
         <div>
           <span className='font-bold text-2xl'>${data.price}</span>
         </div>
-        <div>
+        <div className='w-full'>
           <button
-            className='bg-black text-white border px-4 py-4 w-full uppercase text-xs hover:bg-white hover:text-black hover:border-black transition-all mb-2'
+            className='bg-black text-white border px-4 py-4 w-full uppercase text-xs hover:bg-white hover:text-black hover:border-black transition-all mb-2 max-w-sm'
             onClick={addToCart}
           >
             Add to cart
           </button>
-
-          <Link href='/'>
-            <a
-              href='#'
-              className='bg-white text-black border border-black px-4 py-4 w-full uppercase text-xs hover:bg-black hover:text-white hover:border-black transition-all block text-center'
-            >
-              Back
-            </a>
-          </Link>
         </div>
       </div>
     </section>
