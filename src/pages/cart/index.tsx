@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useRoute } from 'wouter'
-import useFetch from '../hooks/useFetch'
-import Loader from '../components/Loader'
-import Layout from '../layout/Layout'
-import CartItem from '../components/CartItem'
+import useFetch from '../../hooks/useFetch'
+import Loader from '../../components/Loader'
+import Layout from '../../layout/Layout'
+import CartItem from './CartItem'
 
 const Cart = () => {
   const [match, params] = useRoute<{ cid: string }>('/carts/:cid')

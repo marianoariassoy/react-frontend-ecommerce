@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'wouter'
 import Pagination from './Pagination'
 import ProductsItem from './ProductsItem'
-import useFetch from '../hooks/useFetch'
-import Loader from '../components/Loader'
-import Filters from '../components/Filters'
-import { useLocation } from 'wouter'
+import useFetch from '../../hooks/useFetch'
+import Loader from '../../components/Loader'
+import Filters from './Filters'
 
 const Products = () => {
   const location = useLocation()[0]

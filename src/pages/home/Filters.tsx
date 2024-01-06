@@ -1,5 +1,5 @@
-import { sorts } from '../data/data'
-import { Down } from '../icons/icons'
+import { sorts } from '../../data'
+import { Down } from '../../components/icons'
 
 interface Props {
   options: { page: number; limit: number; category: string; sort: string }

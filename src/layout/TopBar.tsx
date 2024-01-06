@@ -1,4 +1,4 @@
-import { Close, Truck } from '../icons/icons'
+import { Close, Truck } from '../components/icons'
 
 const TopBar = () => {
   const closeTopBar = () => {
