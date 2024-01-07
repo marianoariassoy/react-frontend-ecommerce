@@ -29,7 +29,7 @@ const Filters = ({ options, setOptions, totalDocs, category }: Props) => {
         <select
           name='price-order'
           id='price-order'
-          className='bg-white border-black border-2 p-2 text-sm px-2'
+          className='bg-white border-black border-2 p-2 text-sm px-2 appearance-none'
           onChange={handleSort}
         >
           <option value='0'>Order By</option>
