@@ -7,9 +7,8 @@ import BeatLoader from 'react-spinners/BeatLoader'
 import { Button } from '../../ui'
 
 const Details = ({ pid }: { pid: string }) => {
-  const cid = '659ab014e9991bfce804c39f'
+  const { apiUrl, cid } = useDataContext()
   const { data, loading } = useFetch(`/products/${pid}`)
-  const { apiUrl } = useDataContext()
   const [isloading, setLoading] = useState(false)
   const [sucess, setSucess] = useState(false)
   const [error, setError] = useState('')
@@ -45,7 +44,7 @@ const Details = ({ pid }: { pid: string }) => {
   }
 
   return (
-    <section className='flex flex-col lg:flex-row'>
+    <section className='flex flex-col lg:flex-row -mt-36'>
       <div className='col aspect-[4/5] lg:w-2/3'>
         <Image
           src={data.image}
@@ -53,13 +52,13 @@ const Details = ({ pid }: { pid: string }) => {
         />
       </div>
       <div className='col lg:w-1/3 flex flex-col gap-y-4 p-6 lg:p-12 lg:pt-32'>
-        <div className='flex flex-col gap-y-4 mb-12'>
+        <div className='flex flex-col gap-y-4 lg:mb-12'>
           <h2 className='uppercase opacity-50 text-sm'>{data.category}</h2>
           <h1 className='font-bold text-2xl'>{data.title}</h1>
           <p className='opacity-50'>{data.description}</p>
         </div>
         <div>
-          <span className='font-bold text-2xl'>${data.price}</span>
+          <span className='font-extrabold text-2xl'>${data.price}</span>
         </div>
         <div>
           {isloading ? (

@@ -19,10 +19,10 @@ const Filters = ({ options, setOptions, totalDocs, category }: Props) => {
   return (
     <div className='mb-12 flex flex-col lg:flex-row items-center gap-2'>
       <div className='flex-grow flex-1 text-sm'>
-        <span className='font-semibold'>Total Products: {totalDocs}</span>
+        <span className='font-semibold'>Products: {totalDocs}</span>
       </div>
       <div>
-        <h2 className='text-2xl font-bold mb-2 uppercase'>{category === 'all' ? 'Latest Products' : category}</h2>
+        <h2 className='text-xl font-bold mb-2 uppercase'>{category === 'all' ? 'Latest Products' : category}</h2>
       </div>
       <div className='flex-grow flex-1 flex justify-end items-center gap-x-2'>
         <Down />

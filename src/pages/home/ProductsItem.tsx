@@ -21,7 +21,7 @@ const ProductsItem = ({ data }: Props) => {
           />
         </div>
       </div>
-      <div className='px-6 lg:p-0 text-xs flex flex-col gap-y-2'>
+      <div className='lg:p-0 text-xs flex flex-col gap-y-2'>
         <div className='bg-black h-1 w-8'></div>
         <div className='flex items-center justify-between'>
           <div>

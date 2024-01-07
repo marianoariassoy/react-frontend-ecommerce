@@ -15,7 +15,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <section className='m-auto max-w-6xl mt-48 px-6 lg:px-12'>
+      <section className='m-auto max-w-6xl px-6 lg:px-12'>
         <h1 className='text-xl lg:text-2xl font-bold mb-8 text-center'>Shoping Cart</h1>
 
         {loading ? (

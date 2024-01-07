@@ -40,7 +40,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <section className='m-auto max-w-6xl mt-48 px-6 lg:px-12'>
+      <section className='m-auto max-w-6xl px-6 lg:px-12'>
         {error ? (
           <h1 className='font-bold mb-8 text-center'>⚠️ {error}</h1>
         ) : isloading ? (
@@ -49,8 +49,8 @@ const Index = () => {
           </div>
         ) : (
           <div className='text-center flex flex-col gap-y-6'>
-            <h1 className='text-xl font-bold'>Your order was created</h1>
-            <p className='font-bold'>{sucess}</p>
+            <h1 className='lg:text-xl font-extrabold mt-12'>Your order was created</h1>
+            <p className='font-bold text-sm'>{sucess}</p>
           </div>
         )}
       </section>

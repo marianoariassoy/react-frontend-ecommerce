@@ -6,7 +6,7 @@ const Nav = () => {
 
   return (
     <div className='flex-1 flex-grow'>
-      <nav className='flex flex-col items-start w-auto gap-2 uppercase text-xs font-semibold pt-4 [&>a:hover]:underline underline-offset-4 decoration-2'>
+      <nav className='flex flex-col items-start w-auto gap-y-2 uppercase text-xs font-semibold [&>a:hover]:underline underline-offset-4 decoration-2'>
         <Link href='/category/all'>
           <a
             className={`${

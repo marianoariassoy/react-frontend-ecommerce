@@ -64,9 +64,9 @@ const CartItem = ({ data, quantity }: { data: Data; quantity: number }) => {
 
   return (
     <tr className='border-b'>
-      <th className='flex gap-6 py-4 text-left'>
+      <th className='flex gap-6 pr-4 py-4 text-left'>
         <Link href={`/product/${data._id}`}>
-          <a>
+          <a className='hidden lg:block'>
             <img
               src={data.image}
               className='object-cover object-center w-36 aspect-square hover:opacity-50 transition-all'

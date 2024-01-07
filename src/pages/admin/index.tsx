@@ -9,12 +9,10 @@ import useFetch from '../../hooks/useFetch'
 
 const Admin = () => {
   const { loggedIn, user, apiUrl } = useDataContext()
-  const [location, setLocation] = useLocation()
+  const [, navigate] = useLocation()
   const [isloading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const { data, loading } = useFetch(`/users`)
-
-  console.log(location)
 
   if (!loggedIn || user.role !== 'admin') {
     return (
@@ -37,7 +35,7 @@ const Admin = () => {
       })
 
       if (response.status === 200) {
-        setLocation('/users/admin/sucess')
+        navigate('/users/admin/sucess')
       } else {
         setError('Error al realizar la solicitud')
       }
@@ -58,7 +56,7 @@ const Admin = () => {
       })
 
       if (response.data.status === 'User updated') {
-        setLocation('/users/admin/sucess')
+        navigate('/users/admin/sucess')
       } else {
         setError('Error al realizar la solicitud')
       }
@@ -71,8 +69,8 @@ const Admin = () => {
 
   return (
     <Layout>
-      <section className='px-6 lg:px-12 pt-48'>
-        <h1 className='text-center font-bold text-xl mb-12'>ACTIVE USERS ({data && data.length})</h1>
+      <section className='px-6 lg:px-12'>
+        <h1 className='lg:text-xl text-center font-extrabold mb-12'>ACTIVE USERS ({data && data.length})</h1>
         {error && <p className='text-center mb-12 font-bold'>⚠️ {error}</p>}
 
         {loading || isloading ? (

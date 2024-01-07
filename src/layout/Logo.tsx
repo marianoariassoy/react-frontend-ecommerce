@@ -4,7 +4,10 @@ const Logo = () => {
   return (
     <div>
       <Link href='/'>
-        <a className='text-xl font-bold hover:opacity-50 transition-all'>BACKEND 55525</a>
+        <a className='text-xl font-extrabold hover:opacity-50 text-center leading-none'>
+          <span className='block lg:inline-block'>CODER</span>
+          <span>CLOTHES</span>
+        </a>
       </Link>
     </div>
   )

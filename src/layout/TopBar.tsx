@@ -6,9 +6,9 @@ const TopBar = () => {
   }
 
   return (
-    <div className='top-bar bg-black text-white text-center p-6 relative flex flex-col lg:flex-row gap-2 items-center justify-center'>
+    <div className='top-bar bg-black text-white text-center p-6 relative flex flex-col lg:flex-row gap-2 items-center justify-center text-sm'>
       <Truck />
-      <span className='text-sm uppercase'>SAME DAY shipments in 24 hours if you buy before 1:00 p.m.</span>
+      <span className='uppercase'>SAME DAY shipments in 24 hours if you buy before 1:00 p.m.</span>
       <button
         className='absolute right-4 text-xl'
         onClick={closeTopBar}
