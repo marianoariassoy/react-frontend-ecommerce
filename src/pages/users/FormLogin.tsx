@@ -1,14 +1,14 @@
 import { useState } from 'react'
+import { Link } from 'wouter'
+import axios from 'axios'
 import { Input } from '../../ui'
 import { BeatLoader } from 'react-spinners'
-import { Link } from 'wouter'
 import { useDataContext } from '../../hooks/useUserContext'
-import axios from 'axios'
 
 const FormLogin = () => {
   const { setLoggedIn, setUser, apiUrl } = useDataContext()
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState('')
   const url = `${apiUrl}/sessions/login`
 
   const [data, setData] = useState({
@@ -24,16 +24,18 @@ const FormLogin = () => {
         password: data.password
       })
 
-      if (response.data.status === 'Logged in') {
-        setLoggedIn(true)
+      if (response.status === 200) {
         const user = response.data.user
         setUser(user)
+        const token = response.data.token
+        localStorage.setItem('token', token)
+        setLoggedIn(true)
       } else {
-        setError(true)
+        setError('Error al realizar la solicitud')
       }
       setLoading(false)
     } catch (error) {
-      setError(true)
+      setError(error.response.data.error)
       setLoading(false)
     }
   }
@@ -41,7 +43,10 @@ const FormLogin = () => {
   return (
     <section className='bg-gray-100 px-6 lg:px-12 pb-32 pt-48'>
       <div className='bg-white p-12 w-full max-w-xl flex flex-col gap-y-6 m-auto'>
-        {error && <div className='font-bold'>⚠️ User or password are incorrect</div>}
+        <div>
+          <h1 className='font-bold text-xl'>LOGIN</h1>
+        </div>
+        {error && <div className='font-bold'>⚠️ {error}</div>}
 
         <div>
           <Input

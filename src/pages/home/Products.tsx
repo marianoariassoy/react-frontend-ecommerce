@@ -3,8 +3,8 @@ import { useLocation } from 'wouter'
 import Pagination from './Pagination'
 import ProductsItem from './ProductsItem'
 import useFetch from '../../hooks/useFetch'
-import Loader from '../../components/Loader'
 import Filters from './Filters'
+import { BeatLoader } from 'react-spinners'
 
 const Products = () => {
   const location = useLocation()[0]
@@ -28,8 +28,8 @@ const Products = () => {
 
   if (loading)
     return (
-      <div className='mt-32'>
-        <Loader />
+      <div className='mt-48 flex items-center justify-center'>
+        <BeatLoader />
       </div>
     )
 

@@ -1,11 +1,12 @@
 import { Route } from 'wouter'
 import Home from './pages/home/'
 import Product from './pages/product/'
-import Users from './pages/users'
+import Login from './pages/users'
 import UsersRegister from './pages/users/Register'
 import UsersAdmin from './pages/admin'
 import UsersSucess from './pages/admin/Sucess'
 import Cart from './pages/cart'
+import CartCheckout from './pages/cart/Checkout'
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
         component={Product}
       />
       <Route
-        path='/users'
-        component={Users}
+        path='/login'
+        component={Login}
       />
       <Route
         path='/users/register'
@@ -39,8 +40,12 @@ function App() {
         component={UsersSucess}
       />
       <Route
-        path='/carts/:cid'
+        path='/cart'
         component={Cart}
+      />
+      <Route
+        path='/cart/checkout'
+        component={CartCheckout}
       />
     </>
   )

@@ -1,14 +1,14 @@
 import { useState } from 'react'
+import axios from 'axios'
+import { useDataContext } from '../../hooks/useUserContext'
 import Layout from '../../layout/Layout'
 import { Input } from '../../ui'
 import { BeatLoader } from 'react-spinners'
-import axios from 'axios'
-import { useDataContext } from '../../hooks/useUserContext'
 
 const Register = () => {
   const [loading, setLoading] = useState(false)
-  const [sucess, setSucess] = useState(false)
-  const [error, setError] = useState(false)
+  const [sucess, setSucess] = useState('')
+  const [error, setError] = useState('')
 
   const { apiUrl } = useDataContext()
   const url = `${apiUrl}/users/register`
@@ -31,15 +31,14 @@ const Register = () => {
         lastName: data.lastName,
         age: data.age
       })
-
-      if (response.data.status === 'User created') {
-        setSucess(true)
+      if (response.status === 200) {
+        setSucess(response.data.status)
       } else {
-        setError(true)
+        setError('Error al realizar la solicitud')
       }
       setLoading(false)
     } catch (error) {
-      setError(true)
+      setError(error.response.data.error)
       setLoading(false)
     }
   }
@@ -48,8 +47,11 @@ const Register = () => {
     <Layout>
       <div className='flex justify-center bg-gray-100 px-6 lg:px-12 min-h-[84vh] pb-32 pt-48'>
         <div className='bg-white p-12 w-full max-w-xl flex flex-col gap-y-6'>
-          {sucess && <div className='font-bold'>✅ User was created successfully</div>}
-          {error && <div className='font-bold'>⚠️ Error creating user</div>}
+          <div>
+            <h1 className='font-bold text-xl'>LOGIN</h1>
+          </div>
+          {sucess && <div className='font-bold'>✅ {sucess}</div>}
+          {error && <div className='font-bold'>⚠️ {error}</div>}
           <div>
             <Input
               type='text'

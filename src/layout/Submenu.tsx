@@ -1,8 +1,10 @@
 import { Link } from 'wouter'
 import { useDataContext } from '../hooks/useUserContext'
+import useFetch from '../hooks/useFetch'
 
 const Submenu = () => {
-  const { loggedIn, setLoggedIn, user, setUser } = useDataContext()
+  const { loggedIn, setLoggedIn, user, setUser, cid } = useDataContext()
+  const { data, loading } = useFetch(`/carts/${cid}`)
 
   const handleLogout = () => {
     setLoggedIn(false)
@@ -11,8 +13,8 @@ const Submenu = () => {
 
   return (
     <div className='flex items-center justify-end gap-x-6 flex-1 flex-grow text-xs pt-4 font-semibold underline-offset-4 decoration-2'>
-      <Link href='/carts'>
-        <a className='hover:underline uppercase'>My Bag (0)</a>
+      <Link href='/cart'>
+        <a className='hover:underline uppercase'>My Bag ({!loading ? data.products.length : 0})</a>
       </Link>
       {loggedIn ? (
         <>
@@ -29,7 +31,7 @@ const Submenu = () => {
           )}
         </>
       ) : (
-        <Link href='/users'>
+        <Link href='/login'>
           <a className='hover:underline uppercase'>LogIn</a>
         </Link>
       )}
