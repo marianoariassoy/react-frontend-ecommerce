@@ -8,7 +8,7 @@ const Header = () => {
     <div className='sticky w-full top-0 z-50'>
       <TopBar />
 
-      <div className='flex items-start gap-x-3 px-6 lg:px-12 py-4'>
+      <div className='flex items-start gap-x-3 px-6 lg:px-12 py-4 header lg:backdrop-blur-0'>
         <Nav />
         <Logo />
         <Submenu />

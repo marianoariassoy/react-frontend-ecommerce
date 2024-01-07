@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useDataContext } from '../../hooks/useUserContext'
 import Image from '../../components/Image'
@@ -12,6 +12,11 @@ const Details = ({ pid }: { pid: string }) => {
   const [isloading, setLoading] = useState(false)
   const [sucess, setSucess] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    const header = document.querySelector('.header')
+    header.classList.add('backdrop-blur-sm')
+  }, [])
 
   const addToCart = async () => {
     const url = `${apiUrl}/carts/${cid}/products/${pid}`
@@ -33,7 +38,7 @@ const Details = ({ pid }: { pid: string }) => {
 
   if (loading) {
     return (
-      <div className='flex items-center justify-center mt-48'>
+      <div className='flex items-center justify-center mt-48 '>
         <BeatLoader />
       </div>
     )
