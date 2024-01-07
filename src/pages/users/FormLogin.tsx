@@ -19,6 +19,7 @@ const FormLogin = () => {
   const handleLogin = async () => {
     try {
       setLoading(true)
+      setError('')
       const response = await axios.post(url, {
         email: data.email,
         password: data.password

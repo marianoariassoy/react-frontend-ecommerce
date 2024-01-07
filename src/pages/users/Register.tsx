@@ -24,6 +24,7 @@ const Register = () => {
   const handleRegister = async () => {
     try {
       setLoading(true)
+      setError('')
       const response = await axios.post(url, {
         email: data.email,
         password: data.password,
@@ -48,7 +49,7 @@ const Register = () => {
       <div className='flex justify-center bg-gray-100 px-6 lg:px-12 min-h-[84vh] pb-32 pt-48'>
         <div className='bg-white p-12 w-full max-w-xl flex flex-col gap-y-6'>
           <div>
-            <h1 className='font-bold text-xl'>LOGIN</h1>
+            <h1 className='font-bold text-xl'>REGISTER</h1>
           </div>
           {sucess && <div className='font-bold'>✅ {sucess}</div>}
           {error && <div className='font-bold'>⚠️ {error}</div>}

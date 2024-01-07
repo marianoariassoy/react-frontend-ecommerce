@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-// const apiUrl = 'http://localhost:8080/api'
-const apiUrl = 'https://backendcoderhouse-dev-rqpj.2.us-1.fl0.io/api'
+import { useDataContext } from './useUserContext'
 import axios from 'axios'
 
 function useFetch(url: string) {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error] = useState(null)
+  const { apiUrl } = useDataContext()
 
   useEffect(() => {
     async function fetchData() {
@@ -20,7 +20,7 @@ function useFetch(url: string) {
       }
     }
     fetchData()
-  }, [url])
+  }, [url, apiUrl])
 
   return { data, loading, setLoading, error }
 }

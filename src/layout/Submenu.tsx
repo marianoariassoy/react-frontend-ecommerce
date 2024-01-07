@@ -1,6 +1,7 @@
 import { Link } from 'wouter'
 import { useDataContext } from '../hooks/useUserContext'
 import useFetch from '../hooks/useFetch'
+import { User } from '../components/icons'
 
 const Submenu = () => {
   const { loggedIn, setLoggedIn, user, setUser, cid } = useDataContext()
@@ -12,7 +13,12 @@ const Submenu = () => {
   }
 
   return (
-    <div className='flex items-center justify-end gap-x-6 flex-1 flex-grow text-xs pt-4 font-semibold underline-offset-4 decoration-2'>
+    <div className='flex flex-col items-end gap-2 flex-1 flex-grow text-xs pt-4 font-semibold underline-offset-4 decoration-2'>
+      {loggedIn && (
+        <div className='flex gap-x-1 items-center'>
+          <User /> {user.firstName + ' ' + user.lastName}
+        </div>
+      )}
       <Link href='/cart'>
         <a className='hover:underline uppercase'>My Bag ({!loading ? data.products.length : 0})</a>
       </Link>
