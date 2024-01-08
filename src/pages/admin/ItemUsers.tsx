@@ -3,7 +3,7 @@ import { roles } from '../../data'
 
 const ItemUsers = ({ data, deleteUser, changeRole }) => {
   return (
-    <article className='w-full p-6 shadow rounded-lg flex flex-col gap-y-3'>
+    <article className='w-full lg:p-8 lg:shadow flex flex-col gap-y-3'>
       <div>
         <h3 className='text-sm font-bold'>
           {data.firstName} {data.lastName}
