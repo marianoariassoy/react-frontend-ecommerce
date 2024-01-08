@@ -16,10 +16,13 @@ const Submenu = () => {
   }
 
   return (
-    <div className='flex flex-col items-end gap-2 flex-1 flex-grow text-xs font-semibold [&>a:hover]:underline underline-offset-4 decoration-2 uppercase'>
+    <div className='flex flex-col items-end gap-2 flex-1 flex-grow text-xs font-semibold [&>a:hover]:underline  underline-offset-4 decoration-2 uppercase'>
       {loggedIn && (
         <div className='gap-x-1 items-center justify-end text-right hidden lg:flex'>
-          <User /> {user.firstName + ' ' + user.lastName}
+          <User />
+          <Link href='/login'>
+            <a className='hover:underline underline-offset-4 decoration-2'>{user.firstName + ' ' + user.lastName}</a>
+          </Link>
         </div>
       )}
       <Link href='/cart'>
@@ -35,13 +38,13 @@ const Submenu = () => {
           </button>
           {user.role === 'admin' && (
             <Link href='/users/admin'>
-              <a className=''>Admin</a>
+              <a>Users</a>
             </Link>
           )}
         </>
       ) : (
         <Link href='/login'>
-          <a>LogIn</a>
+          <a>Login</a>
         </Link>
       )}
     </div>

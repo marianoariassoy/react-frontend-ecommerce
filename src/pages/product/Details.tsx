@@ -63,7 +63,7 @@ const Details = ({ pid }: { pid: string }) => {
           <p className='opacity-50'>{data.description}</p>
         </div>
         <div>
-          <span className='font-extrabold text-2xl'>${data.price}</span>
+          <span className='font-bold text-2xl'>${data.price}</span>
         </div>
         <div>
           {isloading ? (

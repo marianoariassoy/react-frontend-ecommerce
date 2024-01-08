@@ -10,7 +10,7 @@ interface Props {
 const Pagination = ({ page, totalPages, prevPage, nextPage, options, setOptions }: Props) => {
   return (
     <div className='flex justify-center mt-16 text-sm'>
-      <ul className='flex items-center gap-x-4 [&>li>button:hover]:underline'>
+      <ul className='flex items-center gap-x-4 [&>li>button:hover]:opacity-50'>
         <li>
           {prevPage ? (
             <button onClick={() => setOptions({ ...options, page: page - 1 })}>Prev</button>
