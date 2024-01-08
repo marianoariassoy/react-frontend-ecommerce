@@ -2,7 +2,7 @@ const Input = ({ type, name, title, placeholder, value, onChange }) => {
   return (
     <>
       <label
-        className='block text-gray-700 text-sm font-bold mb-2 uppercase'
+        className='block text-gray-700 text-sm font-bold mb-2'
         htmlFor={name}
       >
         {title}

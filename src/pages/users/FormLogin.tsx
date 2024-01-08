@@ -42,10 +42,10 @@ const FormLogin = () => {
   }
 
   return (
-    <section className='bg-gray-100 px-6 lg:px-12 py-6'>
-      <div className='bg-white p-12 w-full max-w-xl flex flex-col gap-y-6 m-auto'>
+    <section className='lg:bg-gray-100 px-6 lg:px-12 py-6'>
+      <div className='bg-white lg:p-12 w-full max-w-xl flex flex-col gap-y-6 m-auto'>
         <div>
-          <h1 className='font-extrabold text-xl'>LOGIN</h1>
+          <h1 className='font-extrabold lg:text-xl'>LOGIN</h1>
         </div>
         {error && <div className='font-bold'>⚠️ {error}</div>}
 

@@ -62,12 +62,11 @@ const Cart = ({ data }) => {
           </table>
         </div>
       </div>
-      <div className='row bg-gray-100 p-4'>
-        <div className='flex justify-between font-bold mb-6'>
-          <div>Total</div>
-          <div>$ {total}</div>
-        </div>
 
+      <div className='row font-bold'>
+        <div>Total $ {total}</div>
+      </div>
+      <div>
         <Button onClick={finishOrder}>Finish your order</Button>
       </div>
     </div>
